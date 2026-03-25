@@ -1,75 +1,61 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 
-// transporter
-import dns from "dns";
+// Initialize Resend
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-dns.setDefaultResultOrder("ipv4first");
+// Email template
+const generateEmailTemplate = (name, email, message) => {
+  return `
+    <div style="font-family: Arial, sans-serif; padding: 20px;">
+      <h2 style="color: #007BFF;">New Message Received</h2>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Message:</strong></p>
+      <blockquote style="border-left: 4px solid #007BFF; padding-left: 10px;">
+        ${message}
+      </blockquote>
+    </div>
+  `;
+};
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_ADDRESS,
-    pass: process.env.GMAIL_PASSKEY,
-  },
-});
-
-// send email function
-async function sendEmail(payload, message) {
-  const { name, email, message: userMessage } = payload;
-
-  const mailOptions = {
-    from: process.env.EMAIL_ADDRESS,
-    to: process.env.EMAIL_ADDRESS,
-    subject: `New Message From ${name}`,
-    text: message,
-    html: `
-      <h2>New Message</h2>
-      <p><b>Name:</b> ${name}</p>
-      <p><b>Email:</b> ${email}</p>
-      <p><b>Message:</b> ${userMessage}</p>
-    `,
-    replyTo: email,
-  };
-
-  try {
-    await transporter.sendMail(mailOptions);
-    return true;
-  } catch (error) {
-    console.error("Email Error:", error.message);
-    return false;
-  }
-}
-
-// API
+// POST API
 export async function POST(request) {
   try {
-    const payload = await request.json();
-    const { name, email, message: userMessage } = payload;
+    console.log("🔥 API HIT");
 
-    const message = `New message from ${name}\nEmail: ${email}\nMessage: ${userMessage}`;
+    const body = await request.json();
+    const { name, email, message } = body;
 
-    const emailSuccess = await sendEmail(payload, message);
-
-    if (emailSuccess) {
+    // Basic validation
+    if (!name || !email || !message) {
       return NextResponse.json(
-        { success: true, message: "Email sent successfully!" },
-        { status: 200 }
+        { success: false, message: "All fields are required" },
+        { status: 400 }
       );
     }
 
+    // Send email using Resend
+    const response = await resend.emails.send({
+      from: "Portfolio <onboarding@resend.dev>", // default sender
+      to: process.env.EMAIL_ADDRESS, // your email
+      subject: `New Message from ${name}`,
+      reply_to: email,
+      html: generateEmailTemplate(name, email, message),
+    });
+
+    console.log("Email response:", response);
+
     return NextResponse.json(
-      { success: false, message: "Failed to send email" },
-      { status: 500 }
+      { success: true, message: "Message sent successfully!" },
+      { status: 200 }
     );
 
   } catch (error) {
-    console.error("API Error:", error.message);
+    console.error("Email Error:", error);
 
     return NextResponse.json(
-      { success: false, message: "Server error occurred" },
+      { success: false, message: "Failed to send message" },
       { status: 500 }
     );
   }
