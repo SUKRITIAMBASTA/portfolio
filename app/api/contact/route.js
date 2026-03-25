@@ -19,7 +19,7 @@ const generateEmailTemplate = (name, email, message) => {
   `;
 };
 
-// POST API
+// API
 export async function POST(request) {
   try {
     console.log("🔥 API HIT");
@@ -27,7 +27,7 @@ export async function POST(request) {
     const body = await request.json();
     const { name, email, message } = body;
 
-    // Basic validation
+    // validation
     if (!name || !email || !message) {
       return NextResponse.json(
         { success: false, message: "All fields are required" },
@@ -35,16 +35,14 @@ export async function POST(request) {
       );
     }
 
-    // Send email using Resend
-    const response = await resend.emails.send({
-      from: "Portfolio <onboarding@resend.dev>", // default sender
-      to: process.env.EMAIL_ADDRESS, // your email
+    // send email
+    await resend.emails.send({
+      from: "Portfolio <onboarding@resend.dev>",
+      to: process.env.EMAIL_ADDRESS,
       subject: `New Message from ${name}`,
       reply_to: email,
       html: generateEmailTemplate(name, email, message),
     });
-
-    console.log("Email response:", response);
 
     return NextResponse.json(
       { success: true, message: "Message sent successfully!" },
