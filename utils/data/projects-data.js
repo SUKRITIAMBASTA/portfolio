@@ -1,79 +1,80 @@
 export const projectsData = [
     {
         id: 1,
-        name: 'WanderLust',
+        name: 'SmartTeach – AI-Powered Academic Management System',
         description:
-            "WanderLust is a full-stack travel listing web application where users can explore, create, and review unique stays — from cabins to domes. Our team collaboratively built the entire platform with features like user authentication, Cloudinary-based image uploads, review system, and category-based filtering. Deployed on Render with a clean, responsive UI. Working on this project helped us strengthen teamwork, communication, and version control practices.",
+            "SmartTeach is an AI-powered academic management platform developed to automate timetable scheduling and streamline institutional workflows. It features a custom scheduling engine capable of handling faculty workload, shift planning, and lab allocation efficiently. The system follows a scalable architecture using Next.js API routes integrated with OpenRouter AI models. It also includes Google Drive integration (BYOS) for seamless resource sharing and secure authentication via NextAuth (Google OAuth and credentials). The platform provides role-based dashboards for Admins, Faculty, and Students, and won 1st Place at Hackit 2.0 (Amity University Patna).",
         tools: [
+            'Next.js',
             'Node.js',
-            'Express.js',
-            'MongoDB',
-            'Cloudinary',
-            'Render',
-            'EJS',
-            'Mongoose',
-            'Passport.js'
+            'OpenRouter API',
+            'Tailwind CSS',
+            'NextAuth',
+            'Google Drive API'
         ],
-        role: 'Full-Stack Developer (Team Project)',
-        code: 'https://github.com/<your-repo-link>',
-        demo: 'https://wanderlust-render-link.com'
+        role: 'Full-Stack Developer',
+        code: 'https://github.com/rajveer-upadhyay-502/SIH-PROJECT/tree/sukriti-edumanage',
+        demo: 'https://smartteachertasks.onrender.com/'
     },
     {
         id: 2,
-        name: 'EduManage',
+        name: 'EduManage – Educational Management System',
         description:
-            "EduManage is an all-in-one educational management system designed to simplify operations for Admins, Teachers, and Students. Built during the Internal Smart India Hackathon, the platform streamlines key workflows such as timetable generation, announcements, attendance tracking, and resource booking. Our team, Thunder X, collaborated through late-night coding sessions and rigorous presentations to deliver a seamless and intuitive solution — ultimately securing First Place at the event organized by AIKYAM - ASET.",
+            "EduManage is a multi-role educational management platform designed for Admins, Teachers, and Students. It automates key processes such as timetable scheduling and attendance management, reducing manual effort by 50%. The system ensures secure authentication and role-based access control using modern web technologies. This project secured 1st Place in the Smart India Hackathon (Internal).",
         tools: [
             'Next.js',
             'MongoDB',
             'NextAuth',
-            'Node.js',
-            'Zustand',
-            'Tailwind CSS',
-            'Cloud Services',
-            'REST APIs'
+            'Tailwind CSS'
         ],
-        role: 'Full-Stack Developer (Team Thunder X)',
-        code: '',    // add GitHub repo if available
-        demo: ''     // add deployed link if available
+        role: 'Full-Stack Developer',
+        code: 'https://github.com/rajveer-upadhyay-502/SIH-PROJECT/tree/sukriti',
+        demo: ''
     },
     {
         id: 3,
-        name: 'Railway Ticket Booking System',
+        name: 'WanderLust – Full Stack Web Application',
         description:
-            "The Railway Ticket Booking System is a Java-based application designed to automate and simplify the traditional railway reservation process. It features user login/signup, seat availability checks, ticket booking, passenger management, and ticket cancellation — collectively simulating a real-world reservation workflow. Through this project, I gained hands-on experience in backend development using Java, applying OOP principles, Collections, Exception Handling, and modular coding. I also integrated MySQL using JDBC for secure data storage and CRUD operations. Building this system enhanced my skills in database design, SQL queries, logic building, debugging, and real-time application development.",
+            "WanderLust is a full-stack web application that enables users to explore and interact with travel listings. The platform supports over 100+ user interactions and is built with efficient REST APIs that reduced response time by 25%. Cloudinary integration improved image loading efficiency by 40%, and the UI was optimized for responsiveness and usability. The application is deployed on Render.",
         tools: [
-            'Java',
-            'OOP',
-            'MySQL',
-            'JDBC',
-            'Exception Handling',
-            'Collections Framework'
+            'Node.js',
+            'Express.js',
+            'MongoDB',
+            'EJS',
+            'Cloudinary',
+            'Render'
         ],
-        role: 'Backend Developer',
-        code: '',  // add GitHub repo if available
-        demo: ''   // add demo link if applicable
-    }
-    ,
+        role: 'Full-Stack Developer',
+        code: 'https://github.com/Roshankumar3011/Wanderlust',
+        demo: 'https://wanderlust-lcdo.onrender.com'
+    },
     {
         id: 4,
-        name: 'Customer Segmentation',
+        name: 'Railway Ticket Booking System',
         description:
-            "This project performs customer segmentation using the K-Means clustering algorithm. The workflow includes data loading, exploratory checks, and preprocessing by handling missing values in key fields like Age, Annual Income, and Spending Score. Extensive exploratory data analysis (EDA) was conducted using histograms, distplots, pairplots, scatter plots, and a correlation heatmap to understand patterns and relationships within the dataset. The elbow method was applied to identify the optimal number of clusters, resulting in 6 customer segments. Finally, the clusters were visualized on a scatter plot of Annual Income vs. Spending Score, helping uncover meaningful customer groups for business insights.",
+            "A console-based application built using Java and MySQL to simulate a railway reservation system. It supports ticket booking, cancellation, and seat allocation while handling concurrent operations efficiently through structured database interactions. The system emphasizes modular design and robustness through proper exception handling.",
+        tools: [
+            'Java',
+            'MySQL',
+            'JDBC'
+        ],
+        role: 'Backend Developer',
+        code: 'https://github.com/SUKRITIAMBASTA/TicketBookingSystem',
+        demo: ''
+    },
+    {
+        id: 5,
+        name: 'Customer Segmentation (ML Project)',
+        description:
+            "This machine learning project applies K-Means clustering to identify six distinct customer segments. The workflow includes data preprocessing, exploratory data analysis, and optimization using the Elbow Method. Visualizations were used to interpret patterns and generate actionable insights for targeted marketing strategies.",
         tools: [
             'Python',
-            'Pandas',
-            'NumPy',
-            'Matplotlib',
-            'Seaborn',
-            'Scikit-learn',
             'K-Means Clustering'
         ],
         role: 'Data Analyst / ML Developer',
-        code: '',  // add GitHub link if available
-        demo: ''   // add notebook or hosted demo link if applicable
+        code: 'https://github.com/Roshankumar3011/Customer-Segmentation',
+        demo: ''
     }
-    ,
 ];
 
 

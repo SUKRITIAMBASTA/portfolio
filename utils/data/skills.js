@@ -8,9 +8,6 @@ export const skillsData = [
   'Tailwind',
   'MongoDB',
   'MySQL',
-  'C',
-  'C++',
-  'C#',
  'Python',
   'Java',
   'Git',
@@ -19,6 +16,7 @@ export const skillsData = [
   'Figma',
   'Firebase',
   'ViteJS',
+  'Spring Boot',
   
 ]
 

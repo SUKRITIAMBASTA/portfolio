@@ -22,6 +22,6 @@ export const experiences = [
     company: 'Self-Driven / Academic Projects',
     duration: '(2023 - Present)',
     description:
-      'Built full-stack applications using Next.js, React.js, and EJS with emphasis on aesthetics, functionality, and scalable architecture. Developed strong proficiency in both frontend and backend workflows.'
+      'Built full-stack applications using Next.js, React.js,EJS,Java Spring-boot with emphasis on aesthetics, functionality, and scalable architecture. Developed strong proficiency in both frontend and backend workflows.'
   },
 ];

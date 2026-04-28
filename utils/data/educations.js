@@ -4,7 +4,7 @@ export const educations = [
     title: "Bachelor of Technology (B.Tech), Computer Science",
     duration: "Jul 2023 - Jul 2027",
     institution: "Amity University, Patna",
-    grade: "CGPA: 8.58"
+    grade: "CGPA: 8.66/10 (Till 5th Semester)",
   },
   {
     id: 2,

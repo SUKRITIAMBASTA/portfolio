@@ -22,5 +22,5 @@ export const personalData = {
   devUsername: "SukritiAmbasta",
 
   // 🔥 IMPORTANT: Add resume link here
-  resume: "https://drive.google.com/file/d/1XbHIVRlpyPFAVVeptMyDT7CROxZoQsU8/view?usp=sharing"
+  resume: "https://drive.google.com/file/d/1EvyCyQPKWr8s0tFjNQ4QfuI7IdM8WGQo/view?usp=drive_link"
 };
